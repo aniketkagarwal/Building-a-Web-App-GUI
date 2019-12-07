@@ -1,13 +1,14 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var ejs = require('ejs');
 var request = require('request');
-var app = express()
+var app = express();
 
 var apiKey = '*****************';
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null});
@@ -33,5 +34,5 @@ app.post('/', function (req, res) {
 })
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log("App listening on port 3000");
 })
